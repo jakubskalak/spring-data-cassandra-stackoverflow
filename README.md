@@ -4,7 +4,7 @@ It was using Spring Boot 2.5.4 Cassandra Java Driver 4.11.3 and Java 11.
 
 But problem exist also with never versions, so it is not related to specific version of Spring Data Cassandra or Cassandra Driver.
 
-Decided to crete simple service reproducing this issue, which hopefully may help with understanding the problem.
+Decided to create simple service reproducing this issue, which hopefully may help with understanding the problem.
 
 When trying to reproduce this issue on my local instance I determined that significant factor is  **spring.data.cassandra.request.page-size**. Lower value - quicker StackOverflowError.
 
