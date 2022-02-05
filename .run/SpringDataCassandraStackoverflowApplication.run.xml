@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SpringDataCassandraStackoverflowApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="spring-data-cassandra-stackoverflow" />
+    <extension name="coverage" per_test_coverage_enabled="false" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.skalak.jakub.springdatacassandrastackoverflow.SpringDataCassandraStackoverflowApplication" />
+    <option name="VM_PARAMETERS" value="-Xss200k" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

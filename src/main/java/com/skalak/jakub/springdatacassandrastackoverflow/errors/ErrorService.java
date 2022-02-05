@@ -10,7 +10,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.stream.IntStream;
 import java.util.stream.LongStream;
 
 @Slf4j
@@ -28,12 +27,8 @@ public class ErrorService {
     public Flux<Error> findAll() {
         return errorRepository.findAll()
                 .doOnNext(error -> counter.getAndIncrement())
-                .doOnNext(error -> {
-                    final var count = counter.get();
-                    if (count % 1000 == 0) {
-                        log.debug("Processed: {}", count);
-                    }
-                });
+                .doOnNext(error -> log.debug("Processed: {}", counter.get()))
+                .doFinally(signal -> counter.set(0));
     }
 
     public Mono<Error> registerError(@NonNull Long id) {

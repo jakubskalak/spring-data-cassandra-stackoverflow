@@ -1,3 +1,7 @@
+logging:
+  level:
+    root: ${LOG_ROOT_LEVEL:DEBUG}
+    com.skalak.jakub: ${LOG_APP_LEVEL:DEBUG}
 
 spring:
   main:
@@ -12,7 +16,7 @@ spring:
       local-datacenter: ${CASSANDRA_LOCAL_DC:datacenter1}
       port: ${CASSANDRA_PORT:9042}
       request:
-        timeout: ${CASSANDRA_REQUEST_TIMEOUT:12s}
+        timeout: ${CASSANDRA_REQUEST_TIMEOUT:5s}
         consistency: local_quorum
-        page-size: ${CASSANDRA_PAGE_SIZE:10}
+        page-size: ${CASSANDRA_PAGE_SIZE:2}
       keyspace-name: ${CASSANDRA_KEYSPACE:stackoverflow}
