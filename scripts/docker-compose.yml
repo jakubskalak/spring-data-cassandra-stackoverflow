@@ -1,0 +1,21 @@
+version: '3.9'
+
+services:
+  cassandra:
+    image: cassandra:3.11.11
+    container_name: 'cassandra-overflow'
+    ports:
+      - "9042:9042"
+    restart: always
+    healthcheck:
+      test: ["CMD", "cqlsh", "-u cassandra", "-p cassandra" ,"-e describe keyspaces"]
+      timeout: 10s
+
+  cassandra-load-keyspace:
+    container_name: 'cassandra-load-keyspace-overflow'
+    image: cassandra:3.11.11
+    depends_on:
+      - cassandra
+    volumes:
+      - ./cassandra-schema.cql:/cassandra-schema.cql
+    command: /bin/bash -c 'sleep 20 && cqlsh cassandra -f cassandra-schema.cql'

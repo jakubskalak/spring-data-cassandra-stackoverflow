@@ -1,0 +1,18 @@
+
+spring:
+  main:
+    banner-mode: off
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
+  codec:
+    log-request-details: true
+  data:
+    cassandra:
+      contact-points: ${CASSANDRA_HOST:localhost}
+      local-datacenter: ${CASSANDRA_LOCAL_DC:datacenter1}
+      port: ${CASSANDRA_PORT:9042}
+      request:
+        timeout: ${CASSANDRA_REQUEST_TIMEOUT:12s}
+        consistency: local_quorum
+        page-size: ${CASSANDRA_PAGE_SIZE:10}
+      keyspace-name: ${CASSANDRA_KEYSPACE:stackoverflow}
