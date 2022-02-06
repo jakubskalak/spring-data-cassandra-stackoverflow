@@ -4,7 +4,10 @@ import com.skalak.jakub.springdatacassandrastackoverflow.errors.ErrorService;
 import com.skalak.jakub.springdatacassandrastackoverflow.errors.model.Error;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -14,19 +17,6 @@ import reactor.core.publisher.Mono;
 public class ErrorController {
 
     private final ErrorService errorService;
-
-    @GetMapping("/{id}")
-    public Mono<ResponseEntity<Error>> findError(@PathVariable("id") Long id) {
-        return errorService.findError(id)
-                .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.notFound().build());
-    }
-
-    @PutMapping("/{id}")
-    public Mono<ResponseEntity<Error>> registerNewError(@PathVariable("id") Long id) {
-        return errorService.registerError(id)
-                .map(ResponseEntity::ok);
-    }
 
     @PostMapping("/batch")
     public Mono<ResponseEntity<Void>> longRunningBatch() {

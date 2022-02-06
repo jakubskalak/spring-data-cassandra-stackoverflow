@@ -2,7 +2,7 @@
 At September 2021, on production service I struggled with **StackOverflowError** during massive batch job, which task was to go through all records of table and do some computation.
 It was using Spring Boot 2.5.4, Spring Data Cassandra 3.2.4, Cassandra Java Driver 4.11.3 and Java 11.0.2.
 
-But problem exist also with never versions, so it is not related to specific version of Spring Data Cassandra or Cassandra Driver.
+But problem exist also with newer versions, so it is not related to specific version of Spring Data Cassandra, Cassandra Driver or Java.
 
 Decided to create simple service reproducing this issue, which hopefully may help with understanding the problem.
 
