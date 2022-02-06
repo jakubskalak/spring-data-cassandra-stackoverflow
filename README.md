@@ -1,5 +1,5 @@
 ## Description
-At September 2021, on production service I struggled with **StackOverflowError** during massive batch job, which task was to go through all records of table and do some computation.
+On September 2021, my production service struggled with **StackOverflowError** during massive batch job, which task was to go through all records of table and do some computation.
 It was using Spring Boot 2.5.4, Spring Data Cassandra 3.2.4, Cassandra Java Driver 4.11.3 and Java 11.0.2.
 
 But problem exist also with newer versions, so it is not related to specific version of Spring Data Cassandra, Cassandra Driver or Java.
@@ -8,7 +8,7 @@ Decided to create simple service reproducing this issue, which hopefully may hel
 
 When trying to reproduce this issue on my local instance I determined that significant factor is  **spring.data.cassandra.request.page-size**. Lower value - quicker StackOverflowError.
 
-And of course JVM stack size which can be tuned using `-Xss` option - my production service used default value.
+And of course JVM stack size, which can be tuned using `-Xss` option - my production service used default value.
 
 So for reproducing it quicker locally you can juggle them by changing under:
    - [application.yml](/src/main/resources/application.yml),
