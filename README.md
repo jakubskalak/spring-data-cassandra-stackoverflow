@@ -126,3 +126,16 @@ It looks like source of problem is under **DefaultBridgedReactiveSession.class**
 
 You can create breakpoint at **ReactiveRowMapperResultSetExtractor:64** then run job from step **2**.
 Allowing program resume during paged request you will see increasing stacktrace.
+
+## Issue & resolution
+Issue:
+https://github.com/spring-projects/spring-data-cassandra/issues/1215
+
+Resolution:
+https://github.com/spring-projects/spring-data-cassandra/commit/7395a7e269d9ebb2f17edeb4a095046a466a8ab8
+
+Problem will disappear in following versions:
+- [3.2.9 (2021.0.9)](https://github.com/spring-projects/spring-data-cassandra/milestone/213)
+- [3.3.2 (2021.1.2)](https://github.com/spring-projects/spring-data-cassandra/milestone/214)
+
+Big thanks to [Mark Paluch](https://github.com/mp911de) for resolving that!
